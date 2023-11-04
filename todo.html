@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>   
+<title>TODO LIST</title>
+<link rel="stylesheet" href="todo.css">
+</head>
+<body>
+<div>
+<h1>My To Do List</h1>
+</div>
+<div id="container">
+<input type="text" id="input" placeholder="Title....">
+<button id="btn">Add Todo</button>
+<ul class="ul" style="list-style-type:none;">
+</ul>
+</div>
+</body>
+<script>
+    document.getElementById('btn').addEventListener('click',
+        function () {
+            let input = document.getElementById('input').value;
+            let element = document.createElement('li');
+            let btn1 = document.createElement('button');
+            let btn2 = document.createElement('button');
+            btn1.innerText = "Done";
+            btn2.innerText = "Remove";
+            element.innerText = input;
+            let ul = document.querySelector('ul');
+            ul.appendChild(element);
+            element.appendChild(btn1);
+            element.appendChild(btn2);
+            element.style.color="black";
+            element.style.fontSize="18px";
+            element.style.fontWeight="bold";
+            btn1.addEventListener('click',
+                function () {
+                    element.style.textDecoration = "line-throught";
+                }
+            );
+            btn2.addEventListener('click',
+                function () {
+                    element.remove();
+                }
+            );
+            document.getElementById('input').value = "";
+        }
+    );
+</script>
+</html>
